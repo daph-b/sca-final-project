@@ -40,7 +40,7 @@ resource "google_sql_user" "admin_user" {
   
 //creates user for the db instance
 resource "google_sql_user" "new_user" {
-  name     = "new-user"
+  name     = "new-user1"
   instance = google_sql_database_instance.primary.name
   password = "password"
 }
