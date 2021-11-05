@@ -6,7 +6,7 @@ This way, each pod lives and dies with its own access to the database.
 The application image is pulled form a private artifact registry repository and the cloud sql image is pulled from a
  public container registry repository
 
-Datablocks are used to get information about the cluster and the cloud SQL instance.
+Datablocks are used to get information about the cluster and the cloud SQL instance from a cloud storage bucket.
 
 Custom resource definitions are used to  enable the addition of more features to the kubernetes setup.
 The crds used in this module are:
@@ -22,14 +22,8 @@ kubernetes secrets are used to apply a user managed tls certificate to the ingre
 * project_id : the google project the resources should be provisioned in
 * region: the region in which to provision the resources
 * namespace: the kubernetes namespace inwhich to create the kubernetes objects.
-* db_user: the databse user
-* db_pass: the databse user's password
-* db: the name of the database
 * deployment_replica: the number of pods to deploy
 * container_image: the application image
-* cluster_name: the name of the ckuster to create the kubernetes object on
-* cluster_zone: the zone of the cluster
-* db_instance: the name of the database instance to connect to
 
 
 

@@ -9,6 +9,9 @@ the kubernetes are provisioned in the same apply operation.
 Each submodule is created in a modular fashion and thus can be reused. <br />
 They each contain a README.md file that  gives further insight on the variables required to create each.
 
+Relevant Data about the cluster and the database needed by the kubernetes are exported to a cloud storage <br />
+bucket and accessed by the kubernetes submodule using data blocks.
+
 
 ## Usage
 Each submodule should be treated as a different apply operation. 
