@@ -35,11 +35,12 @@ resource "kubernetes_deployment" "sca-project-depl" {
           
             env {
                 name = "POSTGRES_PASS"
-                value = var.db_pass
+                value = data.google_storage_bucket_object_content.db_pass.content
             }
             env {
                 name = "POSTGRES_USER"
-                value = var.db_user
+                value = data.google_storage_bucket_object_content.db_user.content
+
             }
             env {  
                 name = "POSTGRES_HOST"
@@ -47,7 +48,8 @@ resource "kubernetes_deployment" "sca-project-depl" {
             }
             env {
                 name = "POSTGRES_DB"
-                value = var.db
+                value = data.google_storage_bucket_object_content.db.content
+
             }
             env {
                 name = "API_KEY"
@@ -64,7 +66,7 @@ resource "kubernetes_deployment" "sca-project-depl" {
             image = "gcr.io/cloudsql-docker/gce-proxy:1.17"
             command = [
               "/cloud_sql_proxy",
-              "-instances=${data.google_sql_database_instance.app_db.connection_name}=tcp:5432"
+              "-instances=${data.google_storage_bucket_object_content.db_connection.content}=tcp:5432"
               ]
             security_context {
               run_as_non_root = true
