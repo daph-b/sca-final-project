@@ -27,5 +27,4 @@ The service account key to authenticate terraform to the google provider is stor
 variable GOOGLE_CREDENTIALS in each workspace.
 
 
-click on the link to visit the fully deployed application
-https://finance.revevellidan.com
+
